@@ -1,0 +1,14 @@
+version: '3.8'
+
+services:
+  flight-tracker:
+    image: node:20
+    working_dir: /app
+    volumes:
+      - .:/app
+      - /app/node_modules
+    ports:
+      - "8080:8080"
+    command: sh -c "npm install && npm start"
+    environment:
+      - NODE_ENV=development
